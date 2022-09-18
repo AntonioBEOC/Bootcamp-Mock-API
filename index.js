@@ -45,12 +45,17 @@ router.post('/insertProduct',(req,res) =>{
 
     if(req.body.name && req.body.price){
         myDB.push(req.body);
+
+        res.status(200);
+        res.send('Product inserted');
+    }
+    else{
+        res.status(406);
+        res.send('product needs to have a name and a price');
     }
     
     console.log(myDB);
 
-    res.status(200);
-    res.send('Product inserted');
 });
 
 router.post('/deleteProduct/:id', (req,res) =>{
