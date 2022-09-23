@@ -1,7 +1,8 @@
 const { Console } = require('console');
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require("cors")
+const cors = require("cors");
+const { json } = require('body-parser');
 
 //MOCK DATA-----------------------------------------------
 let myDB = [
@@ -43,10 +44,9 @@ router.get('/getProducts',(req,res)=>{
 router.post('/insertProduct',(req,res) =>{
 
     console.log(req.body);
-    myDB.push(JSON.parse(req.body));
+    myDB.push(req.body);
 
-    res.send(JSON.stringify(req.body))
-    
+    res.send(JSON.stringify(req.body));
 
 });
 
