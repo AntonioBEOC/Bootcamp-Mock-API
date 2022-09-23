@@ -1,6 +1,7 @@
 const { Console } = require('console');
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require("cors")
 
 //MOCK DATA-----------------------------------------------
 let myDB = [
@@ -67,7 +68,8 @@ router.post('/deleteProduct/:id', (req,res) =>{
 const app = express();
 app.set('port', process.env.PORT || 3000);
 
-app.use(bodyParser.json())
+app.use(cors());
+app.use(bodyParser.json());
 
 const server = app.listen(app.get('port'),() => {
     console.log(`server running on port: ${app.get('port')}`)
