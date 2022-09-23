@@ -42,8 +42,11 @@ router.get('/getProducts',(req,res)=>{
 
 router.post('/insertProduct',(req,res) =>{
 
-    myDB.push(req.body)
-    res.send(JSON.stringify(req.body));
+    console.log(req.body);
+    myDB.push(JSON.parse(req.body));
+
+    res.send(JSON.stringify(req.body))
+    
 
 });
 
